@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/silver"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/pic1"
+        android:layout_width="266dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="36dp"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/one" />
+
+    <ImageView
+        android:id="@+id/pic2"
+        android:layout_width="266dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/two" />
+
+    <ImageView
+        android:id="@+id/pic3"
+        android:layout_width="266dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/three" />
+
+    <ImageView
+        android:id="@+id/pic4"
+        android:layout_width="266dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/four" />
+
+    <ImageView
+        android:id="@+id/pic5"
+        android:layout_width="266dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/five" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="194dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pic1">
+
+        <ImageButton
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="prev_click"
+            app:srcCompat="@drawable/prev" />
+
+        <ImageButton
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="next_click"
+            app:srcCompat="@drawable/next" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="cursive"
+        android:text="Harry"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
