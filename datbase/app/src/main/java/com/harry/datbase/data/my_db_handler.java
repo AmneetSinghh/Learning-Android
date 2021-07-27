@@ -97,9 +97,27 @@ ursor 2    3.
         values.put(Params.KEY_NAME,con.getName());
         values.put(Params.KEY_PHONE,con.getPhone_number());
         return db.update(Params.TABLE_NAME, values,Params.KEY_ID+ "=?",
-                new String[]{String.valueOf(con.getId())});
+        new String[]{String.valueOf(con.getId())});
     }
 
 
-//    public void 
+    public void DeleteContactById(int id)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.delete(Params.TABLE_NAME,Params.KEY_ID + "=?",new String[]{String.valueOf(id)});// =? is where clause;
+        db.close();
+    }
+    public void DeleteContact(contact con)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.delete(Params.TABLE_NAME,Params.KEY_ID + "=?",new String[]{String.valueOf(con.getId())});// =? is where clause;
+        db.close();
+    }
+    public int GetCountTableRows()
+    {
+        String query="SELECT * FROM "+ Params.TABLE_NAME;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor= db.rawQuery(query,null);
+        return cursor.getCount();
+    }
 }
