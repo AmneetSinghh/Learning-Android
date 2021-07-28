@@ -64,8 +64,8 @@ ListView list;
 
 
         ArrayList<String> contacts= new ArrayList<>();
-        list=findViewById(R.id.listview);
-
+//        list=findViewById(R.id.listview);
+//
         List<contact> all= db.getallcontacts();
         for(contact con: all){
 //            db.DeleteContact();
@@ -75,9 +75,9 @@ ListView list;
              contacts.add(con.getName()+" ( "+con.getPhone_number()+" ) ");
         }
 
-
-        ArrayAdapter<String> ap= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,contacts);
-        list.setAdapter(ap);
+//
+//        ArrayAdapter<String> ap= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,contacts);
+//        list.setAdapter(ap);
 
 
         /*********************************************************************/
