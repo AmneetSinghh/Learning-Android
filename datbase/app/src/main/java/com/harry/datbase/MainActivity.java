@@ -1,12 +1,13 @@
 package com.harry.datbase;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
+import com.harry.datbase.adapter.RecyclerViewAdapter;
 import com.harry.datbase.data.my_db_handler;
 import com.harry.datbase.model.contact;
 
@@ -16,78 +17,56 @@ import java.util.List;
 
 // CRUD application;
 public class MainActivity extends AppCompatActivity {
-ListView list;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
+    private  ArrayList<contact> contactArrayList;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        my_db_handler  db= new my_db_handler(MainActivity.this);// ye krkke mi apna db object bna lunga;
-        // ye krne se create method run ho jaiga, then table ko bna dega;
-//
-//
-//        // Creating contact for  the db
-//        contact harry= new contact();
-//        harry.setPhone_number("9191919191");
-//        harry.setName("Harry Singh");
+
+        //Recyclerview initialization
+        recyclerView = findViewById(R.id.hero);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        my_db_handler db = new my_db_handler(MainActivity.this);
+
+//         Creating a contact object for the db
+//        contact harry = new contact();
+//        harry.setPhone_number("9090909090");
+//        harry.setName("Harry");
 //        db.addcontact(harry);
-//
-//        contact harry1= new contact();
-//        harry1.setPhone_number("9191919391");
-//        harry1.setName("Harry temo");
-//        db.addcontact(harry1);
-//
-//        contact harry2= new contact();
-//        harry2.setPhone_number("9192919191");
-//        harry2.setName("Harry babu");
-//        db.addcontact(harry2);
-//
-//
-//        // for updation:
-//
-//
-//        harry2.setId(30);
-//        harry2.setName("changed harry2");
-//        harry2.setPhone_number("0000000");
-//        int affected_rows=db.UpdateContact(harry2);// db.updatecontact returns number of affected rows;
-//        Log.d("db_harry","No of the affected rows are: "+affected_rows);
-//
-//        // how to get the query;
-//        Log.d("db_harry","created the id successfully!");
-//
-//
-//        // Get all the contacts;
-//        db.DeleteContactById(1);
-//        db.DeleteContactById(2);
-//        db.DeleteContactById(3);
-//        db.DeleteContactById(4);
+//        db.addcontact(harry);
+//        db.addcontact(harry);
+//        db.addcontact(harry);
+//        db.addcontact(harry);
+//        db.addcontact(harry);
 
 
-        ArrayList<String> contacts= new ArrayList<>();
-//        list=findViewById(R.id.listview);
-//
-        List<contact> all= db.getallcontacts();
-        for(contact con: all){
-//            db.DeleteContact();
-            Log.d("db_harry","*****************************************\n"+ " id : "+con.getId()+"\n"+
-                    "Name: "+con.getName()+"\n"
-                    + " Phone Number: "+con.getPhone_number()+"\n"+ "*****************************************\n");
-             contacts.add(con.getName()+" ( "+con.getPhone_number()+" ) ");
+        contactArrayList = new ArrayList<>();
+
+        // Get all contacts
+        List<contact> contactList = db.getallcontacts();
+        int i=0;
+        for(contact contact: contactList){
+
+            Log.d("dbharry", "\nId: " + contact.getId() + "\n" +
+                    "Name: " + contact.getName() + "\n"+
+                    "Phone Number: " + contact.getPhone_number() + "\n" );
+            contactArrayList.add(contact);
         }
 
-//
-//        ArrayAdapter<String> ap= new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,contacts);
-//        list.setAdapter(ap);
 
+//       Use your recyclerView
+        recyclerViewAdapter = new RecyclerViewAdapter(MainActivity.this, contactArrayList);
+        recyclerView.setAdapter(recyclerViewAdapter);
 
-        /*********************************************************************/
-        // get count;
-        Log.d("db_harry","We have "+db.GetCountTableRows()+" rows in our table!\n");
-
-
-
-
-
+        Log.d("dbharry", "Bro you have "+ db.GetCountTableRows()+ " contacts in your database");
 
 
     }
