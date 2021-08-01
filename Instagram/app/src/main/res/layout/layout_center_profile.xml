@@ -1,0 +1,147 @@
+<merge xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--*************** Top toolbar **********************  -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/rellayout1">
+            <include layout="@layout/snippet_top_profilebar"/>
+        </RelativeLayout>
+
+        <!--*************** Middle section **********************  -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rellayout1"
+            android:id="@id/rellayout2"
+            android:background="@drawable/white_grey_border_bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linlayout1"
+                android:weightSum="100">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="25"
+                    android:layout_marginStart="20dp">
+
+                    <!--  Circle Image     -->
+                   <de.hdodenhof.circleimageview.CircleImageView
+                       android:layout_width="80dp"
+                       android:layout_height="80dp"
+                       android:id="@+id/ProfileImage"
+                       app:civ_border_color="@color/black"
+                       app:civ_border_width="2dp"
+                       android:layout_centerVertical="true"
+                       android:src="@drawable/one">
+
+
+                   </de.hdodenhof.circleimageview.CircleImageView>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="75"
+                   android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp">
+                    <include layout="@layout/snippet_top_profile"></include>
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+            <!-- Simple BIO section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/linlayout1"
+                android:padding="20dp"
+                android:id="@+id/linlayout2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/display_name"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Harry"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/discription"
+                    android:textColor="@color/black"
+                    android:text="Come and go on, this is very beautflful website."
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/website_name"
+                    android:textColor="@color/link_blue"
+                    android:text="info.pupply1text@gmail.com"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp" />
+
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rellayout3"
+                android:layout_below="@id/linlayout2"
+                android:layout_marginBottom="50dp">
+
+
+                <GridView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gridview"
+                    android:numColumns="3"
+                    android:verticalSpacing="1dp"
+                    android:horizontalSpacing="1dp"
+                    android:stretchMode="columnWidth"
+                    android:gravity="center"/>
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+</merge>
