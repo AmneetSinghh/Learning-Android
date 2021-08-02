@@ -1,4 +1,4 @@
-package com.harry.instagram.Home;
+package com.harry.instagram.utils;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

@@ -1,10 +1,13 @@
 package com.harry.instagram.Profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,22 +37,21 @@ public class ProfileActivity extends AppCompatActivity {
     {
         Toolbar toolbar=(Toolbar) findViewById(R.id.ProfileToolbar);
         setSupportActionBar(toolbar);// just a type of toolbar;
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        ImageView profilemenu= (ImageView) findViewById(R.id.ProfileMenu);
+        profilemenu.setOnClickListener(new View.OnClickListener(){
+
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Log.d(TAG, "onMenuItemClick: clicked menu item on-> "+item);
-                if(item.getItemId()==R.id.ProfileMenu) Log.d(TAG, "onMenuItemClick: Navigating to profile prrefences:");
-                return false;
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: navigating to account settings: ");
+                Intent intent= new Intent(mcontext,AccountSettingsActivity.class);
+                startActivity(intent);
             }
         });
+
+
+
     }
 
-        public boolean onCreateOptionsMenu(Menu menu)
-        {
-            Log.d(TAG, "onCreateOptionsMenu: I am also running ********************************** MENU");
-            getMenuInflater().inflate(R.menu.profile_menu,menu);
-            return true;
-        }
 
 
     // BOttom navigation view setup

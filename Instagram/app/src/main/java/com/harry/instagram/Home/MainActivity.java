@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.harry.instagram.R;
 import com.harry.instagram.utils.BottomNavigationViewHelper;
+import com.harry.instagram.utils.SectionsPagerAdapter;
 
 
 public class MainActivity extends AppCompatActivity {
